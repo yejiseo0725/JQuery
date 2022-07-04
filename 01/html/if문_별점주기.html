@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>if문을 활용한 별점주기</title>
+</head>
+<body>
+
+    <div class="star-rating">
+        <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div>
+
+        <div class="print">
+            별점 주세요!
+        </div>
+    </div> 
+    
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        $(".stars .fa").click(function () {
+            $(this).addClass("active");
+            $(this).prevAll().addClass("active");
+            $(this).nextAll().removeClass("active");
+
+            console.log($(this).index());
+
+            let itemIndex = $(this).index();
+
+            if ( itemIndex === 0 ) {
+            $(".print").html("<strong>별로에요</strong>" + "<img src='../img/star-lv1.png' alt=''>");
+        } 
+        else if ( itemIndex === 1 ) {
+            $(".print").html("<strong>그저그래요</strong>" + "<img src='../img/star-lv2.png' alt=''>");
+        } 
+        else if ( itemIndex === 2 ) {
+            $(".print").html("<strong>보통이에요</strong>" + "<img src='../img/star-lv3.png' alt=''>");
+        } 
+        else if ( itemIndex === 3 ) {
+            $(".print").html("<strong>맘에들어요</strong>" + "<img src='../img/star-lv4.png' alt=''>");
+        } 
+        else {
+            $(".print").html("<strong>훌륭해요</strong>" + "<img src='../img/star-lv5.png' alt=''>");
+        };
+
+        });
+
+        
+
+        
+
+    </script>
+
+</body>
+</html>
