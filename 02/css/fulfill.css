@@ -1,0 +1,27 @@
+.nav li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 30px;
+
+  position: relative;
+}
+
+.nav li a::before {
+  content: attr(data-text);
+  white-space: nowrap;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 0;
+  overflow: hidden;
+
+  color: #ff6741;
+
+  transition: 0.5s;
+}
+
+.nav li a:hover::before {
+  width: 100%;
+}

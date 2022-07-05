@@ -1,0 +1,63 @@
+/* Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #000;
+}
+
+.container {
+}
+.container .nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.container .nav li {
+}
+
+/* 차오르는 효과 만들기 */
+.container .nav li a {
+  position: relative;
+
+  font-size: 2.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.container .nav li a::before {
+  content: attr(data-text);
+  /* attr 를 이용해 html 에 만들어 두었던 data-text 를 가지고 오기 */
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* .nav li a 와 같은 위치로 맞춰주기 */
+
+  width: 0%;
+  overflow: hidden;
+  /* 기본 .nav li a 위에 data-text 가 똑같은 형태로 올라가 있는 상태 */
+  /* overflow:hidden 은 width 값이 0이면 보이지 않게 됨 */
+
+  color: dodgerblue;
+
+  transition: 0.5s;
+}
+.container .nav li a:hover::before {
+  width: 100%;
+}
+
+/* ----- */
+
+.container .mainBg {
+  height: 100vh;
+  background-image: url(../img/portrait-initial.jpg);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  transition: 0.5s;
+}
