@@ -24,13 +24,13 @@
         <strong>돈 넣기</strong>
 
         <div class="btns">
-            <button class="btn1">100원</button>
-            <button class="btn2">500원</button>
-            <button class="btn3">1000원</button>
+            <button class="btn1 btn">100원</button>
+            <button class="btn2 btn">500원</button>
+            <button class="btn3 btn">1000원</button>
         </div>
     </div>
 
-    <div class="choose-btn">
+    <div class="pick-btn">
         뽑기!
     </div>
 
@@ -39,22 +39,24 @@
 
         let a = 0;
 
-        $('.btn-box .btn1').click(function () {
-            a += 100;
-            alert("현재 금액은 " + a + " 원 입니다.");
+        $('.btn').click(function () {
+            const btnIndex = $(this).index();
+            // 클릭된 btn 의 index 번호를 저장시키기
+
+            if (btnIndex === 0) { // 100원 버튼 
+                a += 100;
+            } else if (btnIndex === 1) { // 500원 버튼
+                a += 500;
+            } else { // 1000원 버튼
+                a += 1000;
+            }
+
+            alert(a + " 원 입니다.");
         });
 
-        $('.btn-box .btn2').click(function () {
-            a += 500;
-            alert("현재 금액은 " + a + " 원 입니다.");
-        });
+        $(".pick-btn").click(function () {
+            console.log(a);
 
-        $('.btn-box .btn3').click(function () {
-            a += 1000;
-            alert("현재 금액은 " + a + " 원 입니다.");
-        });
-
-        $('.choose-btn').click(function () {
             if (a >= 1000) {
                 alert("모든 음료수 선택 가능");
             } else if (a >= 700) {
@@ -67,15 +69,22 @@
         });
 
 
-        // if (a >= 1000) {
-        //         alert("모든 음료수 선택 가능");
-        //     } else if (a >= 700) {
-        //         alert("A, B 음료수 선택 가능");
-        //     } else if (a >= 500) {
-        //         alert("A 음료수 선택 가능");
-        //     } else {
-        //         alert("살 수 있는 음료수가 없습니다.");
-        //     }
+
+        // $('.btn-box .btn1').click(function () {
+        //     a += 100;
+        //     alert("현재 금액은 " + a + " 원 입니다.");
+        // });
+
+        // $('.btn-box .btn2').click(function () {
+        //     a += 500;
+        //     alert("현재 금액은 " + a + " 원 입니다.");
+        // });
+
+        // $('.btn-box .btn3').click(function () {
+        //     a += 1000;
+        //     alert("현재 금액은 " + a + " 원 입니다.");
+        // });
+
 
     </script>
 </body>
