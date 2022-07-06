@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../01/css/reset.css">
+    <link rel="stylesheet" href="../css/vending_machine.css">
+    <title>자판기</title>
+</head>
+
+<body>
+
+    <h1>음료수 자판기 만들기!</h1>
+
+    <div class="beverage">
+        <div>A 음료수: 500원</div>
+        <div>B 음료수: 700원</div>
+        <div>C 음료수: 1000원</div>
+    </div>
+
+    <div class="btn-box">
+        <strong>돈 넣기</strong>
+
+        <div class="btns">
+            <button class="btn1">100원</button>
+            <button class="btn2">500원</button>
+            <button class="btn3">1000원</button>
+        </div>
+    </div>
+
+    <div class="choose-btn">
+        뽑기!
+    </div>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        let a = 0;
+
+        $('.btn-box .btn1').click(function () {
+            a += 100;
+            alert("현재 금액은 " + a + " 원 입니다.");
+        });
+
+        $('.btn-box .btn2').click(function () {
+            a += 500;
+            alert("현재 금액은 " + a + " 원 입니다.");
+        });
+
+        $('.btn-box .btn3').click(function () {
+            a += 1000;
+            alert("현재 금액은 " + a + " 원 입니다.");
+        });
+
+        $('.choose-btn').click(function () {
+            if (a >= 1000) {
+                alert("모든 음료수 선택 가능");
+            } else if (a >= 700) {
+                alert("A, B 음료수 선택 가능");
+            } else if (a >= 500) {
+                alert("A 음료수 선택 가능");
+            } else {
+                alert("살 수 있는 음료수가 없습니다.");
+            }
+        });
+
+
+        // if (a >= 1000) {
+        //         alert("모든 음료수 선택 가능");
+        //     } else if (a >= 700) {
+        //         alert("A, B 음료수 선택 가능");
+        //     } else if (a >= 500) {
+        //         alert("A 음료수 선택 가능");
+        //     } else {
+        //         alert("살 수 있는 음료수가 없습니다.");
+        //     }
+
+    </script>
+</body>
+
+</html>
