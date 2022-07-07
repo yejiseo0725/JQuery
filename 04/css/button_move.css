@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.wrap {
+}
+.wrap div {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  border: 2px solid black;
+  background: teal;
+  padding: 30px;
+  margin: 5px;
+  text-transform: uppercase;
+}
+.wrap div.color {
+  background: tomato;
+}
+
+.wrap article {
+  margin-top: 50px;
+  text-align: center;
+}
+.wrap article .btn {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0 10px;
+}
