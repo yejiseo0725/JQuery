@@ -44,11 +44,13 @@ $(function () {
     } else {
       if ($value < 10) $obj.val(++$value);
     }
+
     amountPrice_func();
+    calc();
   });
 
-  calc();
   amountPrice_func();
+  calc();
 
   function amountPrice_func() {
     const $list1 = $(".list1");
@@ -86,7 +88,7 @@ $(function () {
     list1_find = $where.find(".list1");
     priceFind1 = parseInt(
       list1_find
-        .find(".price")
+        .find(".am-price")
         .text()
         .replace(/[^0-9]/g, "")
     ); // 상품 금액 1
@@ -94,7 +96,7 @@ $(function () {
     list2_find = $where.find(".list2");
     priceFind2 = parseInt(
       list2_find
-        .find(".price")
+        .find(".am-price")
         .text()
         .replace(/[^0-9]/g, "")
     ); // 상품 금액 2
@@ -102,7 +104,7 @@ $(function () {
     list3_find = $where.find(".list3");
     priceFind3 = parseInt(
       list3_find
-        .find(".price")
+        .find(".am-price")
         .text()
         .replace(/[^0-9]/g, "")
     ); // 상품 금액 3
@@ -111,27 +113,29 @@ $(function () {
     plusCalc = priceFind1 + priceFind2 + priceFind3;
     $here.find(".amPrice-sum").text(plusCalc);
 
+    console.log(priceFind1, priceFind2, priceFind3);
+
     // 할인 금액 & 배송비 제외
     $whereM = $(".cartTotal-box .totalPrice-items");
 
-    $here1 = parseInt(
+    discount = parseInt(
       $whereM
         .find(".salePrice")
         .text()
         .replace(/[^0-9]/g, "")
     );
-    $here2 = parseInt(
+    delivery = parseInt(
       $whereM
         .find(".deliveryPrice")
         .text()
         .replace(/[^0-9]/g, "")
     );
 
-    console.log($here1, $here2);
+    // console.log(discount, delivery);
 
     // 총 결제 금액
-    totalPaymentPrice = plusCalc - ($here1 + $here2);
-    console.log(totalPaymentPrice);
+    totalPaymentPrice = plusCalc - discount + delivery;
+    // console.log(totalPaymentPrice);
 
     $whereM.find(".totalPrice").text(totalPaymentPrice);
   }
