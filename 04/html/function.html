@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/function.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <title>JavaScript/JQuery 함수</title>
+</head>
+
+<body>
+    <h1>JavaScript/JQuery 함수()</h1>
+
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+
+    <script>
+
+        // function abc() {
+        //     alert("안녕하세요");
+        // }
+
+        // $(".box1").click(function () {
+        //     abc();
+        // });
+        // $(".box2").click(function () {
+        //     abc();
+        // });
+        // $(".box3").click(function () {
+        //     abc();
+        // });
+
+        // 매개변수 === Parameters
+        // let a = 0;
+
+        // function plus(a, b) {
+        //     console.log(a + b);
+        // }
+
+        // plus(10, 20);
+
+        // function info(username, age) {
+        //     console.log("안녕 내 이름은 " + username + " 나이는 " + age + " 살 이에요.");
+        // }
+
+        // info("yeji seo", 20);
+        // info("Teller", 35);
+
+        // let a = 100;
+
+        // function sample() {
+        //     console.log("Teller");
+
+        //     if (a > 50) {
+        //         return;
+        //     }
+
+        //     console.log("안녕하세요");
+        // }
+        // sample();
+
+        function sample2(a, b) {
+            return a * b;
+            // return 을 만나면 호출한 곳으로 간다.
+        }
+
+        // console.log(sample2(20, 10));
+
+        let h = sample2(100, 5);
+
+        $(".box1").click(function () {
+            $(this).css({
+                width: h + "px",
+                height: h / 2 + "px",
+            });
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
