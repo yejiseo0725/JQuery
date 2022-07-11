@@ -1,0 +1,34 @@
+h1 {
+    padding: 50px;
+    border-bottom: 5px solid black;
+    margin-bottom: 100px;
+}
+
+.product-box {
+    /* border: 2px solid crimson; */
+    margin: 50px;
+}
+
+.product-box .big-img {
+    width: 300px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.product-box .big-img img {
+    width: 100%;
+}
+
+.product-box .list-img {
+    font-size: 0;
+}
+
+.product-box .list-img li {
+    display: inline-block;
+    width: 150px;
+    border: 2px solid black;
+    margin-right: 10px;
+}
+.product-box .list-img li img {
+    width: 100%;
+}
