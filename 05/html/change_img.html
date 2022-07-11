@@ -18,94 +18,54 @@
 
     <img src="../img/boot_cut1.jpg" alt=""> -->
 
-    <div class="container">
-
-        <div class="product-box">
-            <div class="big-img">
-                <img src="../img/boot_cut3.jpg" alt="">
-            </div>
-
-            <ul class="list-img">
-                <li class="item"><img src="../img/boot_cut3.jpg" alt=""></li>
-                <li class="item"><img src="../img/boot_cut1.jpg" alt=""></li>
-                <li class="item"><img src="../img/boot_cut2.jpg" alt=""></li>
-            </ul>
+    <div class="product-box">
+        <div class="big-img">
+            <img src="../img/product_cut1.jpg" alt="">
         </div>
+
+        <ul class="list-img">
+            <li class="item active"><img src="../img/product_cut1.jpg" alt=""></li>
+            <li class="item"><img src="../img/product_cut2.jpg" alt=""></li>
+            <li class="item"><img src="../img/product_cut3.jpg" alt=""></li>
+        </ul>
+
+        <nav class="side-img">
+            <div class="type-item"><img src="../img/product_cut1.jpg" alt=""></div>
+            <div class="type-item"><img src="../img/proBeige_cut1.jpg" alt=""></div>
+            <div class="type-item"><img src="../img/boot_cut1.jpg" alt=""></div>
+        </nav>
 
     </div>
 
-
-
-
-
-    <!-- 
-    <a>네이버</a>
-    <input type="checkbox" id="example" checked>
- -->
-
-
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script>
-
-        // let imgPath1 = "../img/boot_cut1.jpg";
-        // let imgPath2 = "../img/boot_cut2.jpg";
-        // let imgPath3 = "../img/boot_cut3.jpg";
-
-        // $(".item").click(function () {
-        //     let itemIndex = $(this).index();
-
-        //     if (itemIndex === 0) {
-        //         $(".big-img img").attr("src", imgPath1);
-        //     } else if (itemIndex === 1) {
-        //         $(".big-img img").attr("src", imgPath2);
-        //     } else {
-        //         $(".big-img img").attr("src", imgPath3);
-        //     }
-        // });
-
-        // * 경로를 설정하는 방법 * (까먹지 않기)
-        // attr("src", "경로 위치");
-
-
+        let lastImgIndex = 0;
         $(".item").click(function () {
-            const itemImg = $(this).children().attr("src"); // img tags + 경로 찾기
-            $(".big-img").children().attr("src", itemImg); // big-img 의 자식요소: img tag
-            console.log(itemImg);
+            $(this).addClass("active").siblings().removeClass("active");
+            const itemImg = $(this).children().attr("src");
+            $(".big-img").children().attr("src", itemImg);
+            lastImgIndex = $(this).index(); // 클릭한 아이템의 배열번호 0 1 2
         });
 
-
-
-
-        // const test1 = $("a").attr("href");
-        // const test2 = $("a").prop("href");
-
-        // console.log(test1, test2);
-
-        // let test = $("input[type=checkbox]");
-
-        // console.log(test.attr("id"));
-        // console.log(test.attr("type"));
-        // console.log(test.attr("checked"));
-
-        // console.log(test.prop("id"));
-        // console.log(test.prop("type"));
-        // console.log(test.prop("checked")); // boolean 타입으로 반환
-
-        // $("input[type=checkbox]").click(function () {
-        //     if (test.prop("checked")) {
-        //         alert("체크됨");
-        //     } else {
-        //         alert("언체크됨");
-        //     }
-
-        // });
-
-        // $("a").prop("href", "http://www.naver.com");
-        // $("input").prop("type", "checkbox");
-        // $("input").prop("id", "example");
-
-
-
+        $(".type-item").click(function () {
+            const typeIndex = $(this).index();
+            const imgList = $(".item");
+            if (typeIndex === 0) { // 사이드이미지 첫번째
+                imgList.eq(0).children().attr("src", "../img/product_cut1.jpg");
+                imgList.eq(1).children().attr("src", "../img/product_cut2.jpg");
+                imgList.eq(2).children().attr("src", "../img/product_cut3.jpg");
+            } else if (typeIndex === 1) { // 사이드이미지 두번째
+                imgList.eq(0).children().attr("src", "../img/proBeige_cut1.jpg");
+                imgList.eq(1).children().attr("src", "../img/proBeige_cut2.jpg");
+                imgList.eq(2).children().attr("src", "../img/proBeige_cut3.jpg");
+            } else { // 사이드 이미지 세번째
+                imgList.eq(0).children().attr("src", "../img/boot_cut1.jpg");
+                imgList.eq(1).children().attr("src", "../img/boot_cut2.jpg");
+                imgList.eq(2).children().attr("src", "../img/boot_cut3.jpg");
+            }
+            const bigImg_Src = imgList.eq(lastImgIndex).children().attr("src"); // 마지막으로 클릭된 item 배열을 담은 변수
+            $(".big-img").children().attr("src", bigImg_Src);
+        });
     </script>
 </body>
 
