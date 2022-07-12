@@ -49,7 +49,6 @@
 
         $(".fa-arrow-down").click(function () {
             let imgList = $(".side-img .item");
-
             if (imgIndex === 0) {
                 $(".main-img").children().attr("src", "../img/black1.jpg");
             } else if (imgIndex === 1) {
@@ -62,16 +61,14 @@
                 $(".main-img").children().attr("src", "../img/black5.jpg");
             } else if (imgIndex === 5) {
                 $(".main-img").children().attr("src", "../img/black6.jpg");
-            } else {
-                imgIndex = 0;
-                $(".main-img").children().attr("src", "../img/black1.jpg");
             }
-            ++imgIndex;
+            if (imgIndex < 5) {
+                ++imgIndex;
+            }
             console.log(imgIndex);
         });
 
         $(".fa-arrow-up").click(function () {
-
             if (imgIndex === 5) {
                 $(".main-img").children().attr("src", "../img/black6.jpg");
             } else if (imgIndex === 4) {
@@ -85,7 +82,9 @@
             } else if (imgIndex === 0) {
                 (".main-img").children().attr("src", "../img/black1.jpg");
             }
-            --imgIndex;
+            if (imgIndex > 0) {
+                --imgIndex;
+            }
             console.log(imgIndex);
         });
 
