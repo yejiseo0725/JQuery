@@ -1,0 +1,44 @@
+.main-box {
+    position: absolute;
+    left: 120px;
+
+}
+
+.main-box .main-img {
+    width: 500px;
+    height: 500px;
+
+    border: 3px solid black;
+}
+.main-box .main-img img {
+    width: 100%;
+}
+
+.side-img {
+    position: absolute;
+    left: 0;
+    border: 3px solid black;
+}
+.side-img .item {
+    width: 100px;
+    height: 100px;
+}
+.side-img .item.on {
+    border: 3px solid royalblue;
+    box-sizing: border-box;
+}
+
+
+.side-img .item img {
+    width: 100%;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-around;
+}
+.btns i {
+    cursor: pointer;
+    font-size: 28px;
+    border: 3px solid royalblue;
+}
