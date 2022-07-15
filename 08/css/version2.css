@@ -1,0 +1,99 @@
+body {
+    height: 100vh;
+    background-color: rgb(186, 165, 250);
+}
+
+.container {
+    position: relative;
+
+    height: 80vh;
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 10vh;
+}
+/* button */
+.container button.left-btn,
+.container button.right-btn {
+    /* button 기본값 빼주기 */
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    /* --- */
+
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, 0);
+
+    width: 50px;
+    height: 50px;
+
+    z-index: 10;
+
+    border: 3px solid #fff;
+    border-radius: 50%;
+
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+}
+.left-btn {
+    left: -3vw;
+}
+.right-btn {
+    right: -6vw;
+}
+/* --- */
+
+
+/* slick-slide */
+.container .slider {
+    width: 100%;
+}
+.container .slider .slide-item {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    /* border: 3px solid coral; */
+    box-sizing: border-box;
+}
+.container .slider .slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transform: rotate(0), scale(1);
+    transition: 2s;
+}
+.container .slider .item1.slick-active img, 
+.container .slider .item3.slick-active img {
+    transform: rotate(45deg), scale(1.5);
+}
+.container .slider .item2.slick-active img,
+.container .slider .item4.slick-active img {
+    transform: rotate(-45deg), scale(1.5);
+}
+
+
+
+/* JQuery */
+.container .slick-dots {
+    display: flex;
+}
+.container .slick-dots li {
+    width: 50px;
+    height: 50px;
+
+    font-size: 30px;
+
+    margin-right: 10px;
+    display: none;
+}
+
+.container .slick-dots li button {
+    display: none;
+}
+.container .slick-dots li.slick-active {
+    display: block;
+}
+
