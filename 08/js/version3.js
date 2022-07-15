@@ -13,16 +13,34 @@ $(function () {
         $(".progress").css({ width: calc * 100 + "%"});
         $(".pagingNum").text((slick.currentSlide + 1) + " / " + slick.slideCount);
 
-    }).on("afterChange", function (event, slick, currentSlide, nextSlide) {
+    }).on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+        console.log(nextSlide);
         sliderCounter(slick);
         // slideCheck(slick);
 
         $(".pagingNum").text((nextSlide + 1) + " / " + slick.slideCount);
-        $(".progress").css({ left: (slidesPer - calc) * 100 + "%" });
+        $(".progress").css({ left: (nextSlide / slick.slideCount) * 100 + "%" });
     });
 
+
+
+    // slider.on("init", function (event, slick) {
+    //     sliderCounter(slick);
+    //     // slideCheck(slick);
+        
+    //     $(".progress").css({ width: calc * 100 + "%"});
+    //     $(".pagingNum").text((slick.currentSlide + 1) + " / " + slick.slideCount);
+
+    // }).on("afterChange", function (event, slick, currentSlide, nextSlide) {
+    //     sliderCounter(slick);
+    //     // slideCheck(slick);
+
+    //     $(".pagingNum").text((nextSlide + 1) + " / " + slick.slideCount);
+    //     $(".progress").css({ left: (slidesPer - calc) * 100 + "%" });
+    // });
+
     function sliderCounter(slick) {
-        console.log(slick);
+        // console.log(slick);
         currentSlide = slick.slickCurrentSlide() + 1;
         slidesCount = slick.slideCount;
         slidesPer = currentSlide / slidesCount;
