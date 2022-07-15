@@ -61,39 +61,67 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.container .slider .slide-item.slick-active:nth-child(odd) img {
+    animation: zoomIn 2.2s both;
+} 
 
-    transform: rotate(0), scale(1);
-    transition: 2s;
+.container .slider .slide-item.slick-active:nth-child(even) img {
+    animation: zoomOut 2.2s both;
+} 
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1) rotate(0deg);
+}   100% {
+        transform: scale(1.5) rotate(15deg);
 }
-.container .slider .item1.slick-active img, 
-.container .slider .item3.slick-active img {
-    transform: rotate(45deg), scale(1.5);
+
 }
-.container .slider .item2.slick-active img,
-.container .slider .item4.slick-active img {
-    transform: rotate(-45deg), scale(1.5);
+@keyframes zoomOut {
+    0% {
+        transform: scale(1.5) rotate(20deg);
+}   100% {
+        transform: scale(1) rotate(0deg);
+}
 }
 
 
 
 /* JQuery */
 .container .slick-dots {
-    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    /* display: flex; */
+    height: 5px;
+    background-color: #808080;
 }
 .container .slick-dots li {
-    width: 50px;
-    height: 50px;
-
-    font-size: 30px;
-
-    margin-right: 10px;
-    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transition: 2s;
+    background-color: mediumorchid;
+}
+.container .slick-dots li.slick-active {
+    width: 100%;
+    animation: progress 2.5s;
 }
 
 .container .slick-dots li button {
     display: none;
 }
-.container .slick-dots li.slick-active {
-    display: block;
-}
 
+@keyframes progress {
+    0% {
+        width: 0;
+    } 
+    100% {
+        width: 100%;
+    }
+}
