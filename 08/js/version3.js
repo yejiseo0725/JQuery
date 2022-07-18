@@ -52,16 +52,29 @@ $(function () {
             left: $position * 100 + "%",
         });
 
-        console.log($current); 
-        console.log(currentSlide);
+        // console.log($current); 
+        // console.log(currentSlide);
     });
 
     $(".slider").slick({
         dots: true,
         arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        infinity: true,
         prevArrow: $(".left-btn"),
         nextArrow: $(".right-btn"),
         initialSlide: 0, // 설정에 맞추어 slick.currentSlide 도 같이 변경된다.
+    
+        // slick-dots Image 처리 
+        customPaging: function (slide, index) {
+            // console.log(slide, index);
+            // console.log(slide.$slides.eq(index).find("img").attr("src"));
+            let imgSrc = slide.$slides.eq(index).find("img").attr("src");
+            console.log('<img src="' + imgSrc + '">');
+            return '<img src="' + imgSrc + '">'
+        }
+
     });
 
     // const slider = $(".slider")
