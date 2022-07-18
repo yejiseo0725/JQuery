@@ -59,11 +59,11 @@ $(function () {
     $(".slider").slick({
         dots: true,
         arrows: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        infinity: true,
         prevArrow: $(".left-btn"),
         nextArrow: $(".right-btn"),
+        // autoplay: true,
+        // autoplaySpeed: 2000,
+        // infinity: true,
         initialSlide: 0, // 설정에 맞추어 slick.currentSlide 도 같이 변경된다.
     
         // slick-dots Image 처리 

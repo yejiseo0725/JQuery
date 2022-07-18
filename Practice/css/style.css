@@ -6,7 +6,7 @@ body {
 .container {
     position: relative;
 
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
     padding-top: 10vh;
 }
@@ -59,16 +59,6 @@ button {
     border: 3px solid coral;
     box-sizing: border-box;
 }
-.slider .slide-item::after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.38);
-}
 .slider .slide-item img {
     width: 100%;
     height: 100%;
@@ -81,9 +71,21 @@ button {
     top: 150px;
 
     width: 500px;
-    color: #fff;
+    color: #252525;
+    z-index: 50;
+
+    text-align: center;
 }
-.slider .slide-item .text-box h2, 
+.slider .slide-item .text-box h2 {}
+.slider .slide-item .text-box p {
+    font-size: 20px;
+    font-weight: 600;
+
+    text-align: start;
+
+    padding-top: 30px;
+}
+/* .slider .slide-item .text-box h2, 
 .slider .slide-item .text-box p {
     opacity: 0;
     transition: 0.5s;
@@ -102,8 +104,10 @@ button {
 .slider .slide-item.slick-active p {
     opacity: 1;
     transform: translateY(0);
-}
+} */
 
+
+/* Page Num && Progress bar */
 .container .pagingNum {
     font-size: 20px;
     color: #fff;
@@ -117,6 +121,7 @@ button {
     width: 100%;
     height: 10px;
     background: #eee;
+
     border-radius: 10px;
 }
 .container .progress-Back .progress {
@@ -125,6 +130,7 @@ button {
     width: 100px;
     height: 100%;
     background-color: coral;
+    
     border-radius: 10px;
 
     transition: 0.2s;
@@ -137,71 +143,23 @@ button {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    background-color: tomato;
 }
-.container .slick-dots li {
-    font-size: 0;
-    width: 150px;
-    /* height: 30px; */
-    /* border-radius: 50%; */
-    /* background-color: coral; */
-    border: 2px solid white;
-    width: 200px;
-    height: 100px;
-    /* margin: 10px; */
-    cursor: pointer;
-    overflow: hidden;
-}
+
 /* customPaging: function (slider, index) 이후, img 가 생겨있는 것을 확인할 수 있다. */
+
 .container .slick-dots li img {
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     object-fit: cover;
     transition: 0.5s;
 }
-.container .slick-dots li.slick-active {
+/* .container .slick-dots li.slick-active {
     border-bottom: 2px solid tomato;
-}
+}  */
 .container .slick-dots li.slick-active img {
     transform: scale(1.4);
 }
-
 .container .slick-dots li button {
     display: none;
-}
-
-/* slick-dots Paging 처리 */
-/* .container .slick-dots {
-    border: 2px solid dodgerblue;
-    display: flex;
-    justify-content: center;
-}
-.container .slick-dots li {
-    width: 50px;
-    height: 50px;
-    background-color: orange;
-    margin: 5px;
-    font-size: 2rem;
-    color: #fff;
-
-    display: none;
-}
-.container .slick-dots li.slick-active {
-    display: block;
-}
-.container .slick-dots li button {
-    display: none;
-} */
-
-
-
-/* .container .slick-dots {
-    text-align: center;
-}
-.container .slick-dots li {
-    color: #fff;
-    font-size: 30px;
-    display: none;
-}
-.container .slick-dots li.slick-active {
-    display: block;
-} */
+} 
