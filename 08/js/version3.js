@@ -1,26 +1,73 @@
 $(function () {
 
-    const slider = $(".slider")
-    let slidesCount;
-    let calc;
-    let currentSlide;
-    let slidePer;
+    const visualSlide = $(".slider");
+    let $bar_Per;
+    let $totalCount;
+    let $current;
 
-    slider.on("init", function (event, slick) {
-        sliderCounter(slick);
-        // slideCheck(slick);
-        
-        $(".progress").css({ width: calc * 100 + "%"});
-        $(".pagingNum").text((slick.currentSlide + 1) + " / " + slick.slideCount);
+    function updateSlide_count(event) {
+        // console.log(event);
+        // slick 을 받아서 가져옴. 여기서의 이름은 event
+        $totalCount = event.slideCount;
+        $current = event.currentSlide;
+        $bar_Per = 1 / $totalCount;
+    }
 
-    }).on("beforeChange", function (event, slick, currentSlide, nextSlide) {
-        console.log(nextSlide);
-        sliderCounter(slick);
-        // slideCheck(slick);
+    visualSlide.on("init", function (event, slick) {
 
-        $(".pagingNum").text((nextSlide + 1) + " / " + slick.slideCount);
-        $(".progress").css({ left: (nextSlide / slick.slideCount) * 100 + "%" });
+        updateSlide_count(slick);
+
+        $(".progress").css({
+            width: ($bar_Per * 100) + "%",
+            left: ($current / $totalCount) * 100 + "%",
+             // progress bar 도 처음부터 같이 따라가게 하기 --- 초깃값 세팅 
+        });
+        $(".pagingNum").text($current + 1 + "/" + $totalCount);
     });
+
+    visualSlide.on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+        
+        updateSlide_count(slick);
+
+        let $position = nextSlide / $totalCount;
+
+        console.log( ((nextSlide + 1) / $totalCount) * 100 );
+        $(".pagingNum").text( (nextSlide + 1) + "/" + $totalCount);
+        $(".progress").css({
+            left: $position * 100 + "%",
+        });
+
+    });
+
+    $(".slider").slick({
+        dots: true,
+        arrows: true,
+        prevArrow: $(".left-btn"),
+        nextArrow: $(".right-btn"),
+        initialSlide: 0, // 설정에 맞추어 slick.currentSlide 도 같이 변경된다.
+    });
+
+    // const slider = $(".slider")
+    // let slidesCount;
+    // let calc;
+    // let currentSlide;
+    // let slidePer;
+
+    // slider.on("init", function (event, slick) {
+    //     sliderCounter(slick);
+    //     // slideCheck(slick);
+        
+    //     $(".progress").css({ width: calc * 100 + "%"});
+    //     $(".pagingNum").text((slick.currentSlide + 1) + " / " + slick.slideCount);
+
+    // }).on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+    //     console.log(nextSlide);
+    //     sliderCounter(slick);
+    //     // slideCheck(slick);
+
+    //     $(".pagingNum").text((nextSlide + 1) + " / " + slick.slideCount);
+    //     $(".progress").css({ left: (nextSlide / slick.slideCount) * 100 + "%" });
+    // });
 
 
 
@@ -39,13 +86,13 @@ $(function () {
     //     $(".progress").css({ left: (slidesPer - calc) * 100 + "%" });
     // });
 
-    function sliderCounter(slick) {
-        // console.log(slick);
-        currentSlide = slick.slickCurrentSlide() + 1;
-        slidesCount = slick.slideCount;
-        slidesPer = currentSlide / slidesCount;
-        calc = 1 / slidesCount;
-    }
+    // function sliderCounter(slick) {
+    //     // console.log(slick);
+    //     currentSlide = slick.slickCurrentSlide() + 1;
+    //     slidesCount = slick.slideCount;
+    //     slidesPer = currentSlide / slidesCount;
+    //     calc = 1 / slidesCount;
+    // }
 
     // function slideCheck(test) {
     //     console.log(test.$slides[0]);
@@ -71,13 +118,7 @@ $(function () {
     //     }
     // }
 
-    $(".slider").slick({
-        dots: true,
-        arrows: true,
-        prevArrow: $(".left-btn"),
-        nextArrow: $(".right-btn"),
-        initialSlide: 0, // 설정에 맞추거 slick.currentSlide 도 같이 변경된다.
-    });
+
 
 
 });
