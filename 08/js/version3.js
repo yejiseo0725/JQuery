@@ -25,18 +25,35 @@ $(function () {
         $(".pagingNum").text($current + 1 + "/" + $totalCount);
     });
 
-    visualSlide.on("beforeChange", function (event, slick, currentSlide, nextSlide) {
-        
+    // visualSlide.on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+    //     updateSlide_count(slick);
+
+    //     let $position = nextSlide / $totalCount;
+
+    //     console.log( ((nextSlide + 1) / $totalCount) * 100 );
+    //     $(".pagingNum").text( (nextSlide + 1) + "/" + $totalCount);
+    //     $(".progress").css({
+    //         left: $position * 100 + "%",
+    //     });
+    // });
+
+    // beforeChange 일 때는, nextSlide 를 사용하고 afterChange 일 때는, currentSlide 사용
+    // client 가 원하는 반응속도를 생각해서 정해주기
+
+    visualSlide.on("afterChange", function (event, slick, currentSlide, nextSlide) {
+
         updateSlide_count(slick);
 
-        let $position = nextSlide / $totalCount;
+        let $position = currentSlide / $totalCount;
 
-        console.log( ((nextSlide + 1) / $totalCount) * 100 );
-        $(".pagingNum").text( (nextSlide + 1) + "/" + $totalCount);
+        $(".pagingNum").text( (currentSlide + 1) + "/" + $totalCount);
+        // console.log(currentSlide, $totalCount);
         $(".progress").css({
             left: $position * 100 + "%",
         });
 
+        console.log($current); 
+        console.log(currentSlide);
     });
 
     $(".slider").slick({
