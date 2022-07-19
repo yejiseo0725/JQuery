@@ -5,11 +5,17 @@ $(function () {
     let $currentSlide;
     let $totalSlide;
     let $progressNow;
-    
-    mainSlide.on("init", function (event, slick) {
+
+    function variableStuff(slick) {
         $currentSlide = slick.currentSlide;
         $totalSlide = slick.slideCount;
         $progressNow = $currentSlide / ($totalSlide - 1);
+    }
+    
+    mainSlide.on("init", function (event, slick) {
+        variableStuff(slick);
+
+        $(".desc").eq($currentSlide).addClass("active");
         
         $(".pageNum").text(($currentSlide + 1) + " / " + $totalSlide);
         $(".progress").css({
@@ -18,10 +24,10 @@ $(function () {
     });
 
     mainSlide.on("afterChange", function (event, slick, currentSlide, nextSlide) {
+        variableStuff(slick);
 
-        $currentSlide = slick.currentSlide;
-        $totalSlide = slick.slideCount;
-        $progressNow = $currentSlide / ($totalSlide - 1);
+        $(".desc").removeClass("active");
+        $(".desc").eq($currentSlide).addClass("active");
 
         console.log($currentSlide, $totalSlide);
         console.log($progressNow * 100);
@@ -39,6 +45,7 @@ $(function () {
     $('.visual-slider').slick({
         dots: true,
         arrows: false,
+        speed: 800,
         variableWidth: true,
         initialSlide: 0,
 

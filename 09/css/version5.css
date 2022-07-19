@@ -1,0 +1,29 @@
+.container {
+    position: relative;
+    height: 100vh;
+}
+
+.left-slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    border: 2px solid coral;
+}
+.left-slider .item {}
+.left-slider .item p {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.right-slider {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    border: 2px solid dodgerblue;
+}
+.right-slider .item {}
+.right-slider .item img {
+    width: 100%;
+}

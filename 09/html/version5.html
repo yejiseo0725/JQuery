@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/slick.css">
+    <link rel="stylesheet" href="../css/version5.css">
+    <title>05</title>
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="left-slider">
+            <div class="item">
+                <p>텍스트 박스 #01</p>
+            </div>
+            <div class="item">
+                <p>텍스트 박스 #02</p>
+            </div>
+            <div class="item">
+                <p>텍스트 박스 #03</p>
+            </div>
+            <div class="item">
+                <p>텍스트 박스 #04</p>
+            </div>
+        </div>
+
+        <div class="right-slider">
+            <div class="item"><img src="../img/image1.jpg" alt=""></div>
+            <div class="item"><img src="../img/image2.jpg" alt=""></div>
+            <div class="item"><img src="../img/image3.jpg" alt=""></div>
+            <div class="item"><img src="../img/image4.jpg" alt=""></div>
+        </div>
+    </section>
+
+
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/slick.min.js"></script>
+    <script>
+
+        $(".left-slider").slick({
+            arrows: false,
+            fade: true,
+            speed: 800,
+        });
+
+        $(".right-slider").slick({
+            asNavFor: ".left-slider",
+            speed: 800,
+        });
+
+    </script>
+</body>
+
+</html>
