@@ -1,0 +1,177 @@
+/* Noto Sans KR */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+body {
+    height: 110vh;
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    background-color: #f1eee8;
+}
+
+.container {}
+.progress-con {
+    position: relative;
+    max-width: 1920px;
+    width: 80%;
+    height: 10px;
+    margin: 30px auto 30px;
+    background: #333;
+    border-radius: 10px;
+}
+.progress-con .progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background: rgb(246, 199, 199);
+    border-radius: 10px;
+}
+
+.visual {
+    position: relative;
+    background: #f8f5f3;
+    max-width: 1920px;
+    min-width: 1200px;
+    margin: 0 auto;
+    /* border: 2px solid coral; */
+}
+.visual .visual-slider {
+    height: calc(100vw * 920 / 1920);
+}
+.visual .visual-slider .slick-slide {
+    /* 반응형 자동으로 잡아주기 위해: calc() 완전 편함! */
+    width: calc(100vw * 1196 / 1920);
+    /* margin-right: 560px; */
+    margin-right: calc(100vw * 560 / 1920);
+}
+.visual .visual-slider .slick-slide img {
+    width: 100%;
+}
+
+.visual .slick-dots {
+    display: flex;
+    justify-content: center;
+}
+.visual .slick-dots li {
+    width: 15px;
+    height: 15px;
+    background:rgb(246, 199, 199);
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+}
+.visual .slick-dots li button {
+    display: none;
+}
+
+.visual .text-con {
+    position: absolute;
+    left: calc(100vw * 1196 / 1920);
+    top: 0;
+    width: 560px;
+    height: 100%;
+    background: rgb(246, 199, 199);
+}
+.visual .text-con .desc {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(100vw * 560 / 1920);
+    height: 100%;
+    padding: 30px 50px;
+    /* contents 가 내부적으로 padding 쓰게 하기 위해: box-sizing: border-box */
+    /* width 100% 와 함께 쓰임 */
+    box-sizing: border-box;
+
+    opacity: 0;
+    visibility: hidden;
+}
+.visual .text-con .desc.a {
+    background-color: tomato;
+}
+.visual .text-con .desc.b {
+    background-color: gold;
+}
+.visual .text-con .desc.c {
+    opacity: 1;
+    visibility: visible;
+    background-color: royalblue;
+}
+.visual .text-con .desc span {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 80px;
+}
+.visual .text-con .desc h2 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #1c1c1c;
+    margin-bottom: 98px;
+}
+
+.visual .text-con .desc p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #7e7e7e;
+    margin-bottom: 62px;
+
+    /* 반응형 text 세팅 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+}
+.visual .text-con .desc a {
+    display: block;
+}
+.visual .text-con .desc a.more {
+    font-size: 16px;
+    font-weight: 500;
+    color: #464646;
+    margin-bottom: 85px;
+}
+.visual .text-con .desc a.view {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1c1c1c;
+}
+
+.pageNum {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #222;
+}
+
+@media (max-width: 1400px) {
+    .visual .text-con .desc span {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+    .visual .text-con .desc h2 {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+    .visual .text-con .desc p {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+    .visual .text-con .desc a.more {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    .visual .text-con .desc a.view {
+        font-size: 14px;
+    }
+}

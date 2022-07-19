@@ -4,57 +4,51 @@ $(function () {
     let $bar_Per;
     let $totalCount;
     let $current;
-
-    function updateSlide_count(event) {
-        // console.log(event);
-        // slick 을 받아서 가져옴. 여기서의 이름은 event
-        $totalCount = event.slideCount;
-        $current = event.currentSlide;
-        $bar_Per = 1 / $totalCount;
-    }
+    let $firstBar;
+    let $changeBar;
 
     visualSlide.on("init", function (event, slick) {
-
         updateSlide_count(slick);
-
         $(".progress").css({
-            width: ($bar_Per * 100) + "%",
-            left: ($current / $totalCount) * 100 + "%",
-             // progress bar 도 처음부터 같이 따라가게 하기 --- 초깃값 세팅 
+            width: $firstBar * 100 + "%",
         });
         $(".pagingNum").text($current + 1 + "/" + $totalCount);
     });
 
-    // visualSlide.on("beforeChange", function (event, slick, currentSlide, nextSlide) {
-    //     updateSlide_count(slick);
+    visualSlide.on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+        updateSlide_count(slick, nextSlide);
+        $(".progress").css({
+            width: $changeBar * 100 + "%",
+        });
+        $(".pagingNum").text( (nextSlide + 1) + "/" + $totalCount);
+    });
 
-    //     let $position = nextSlide / $totalCount;
-
-    //     console.log( ((nextSlide + 1) / $totalCount) * 100 );
-    //     $(".pagingNum").text( (nextSlide + 1) + "/" + $totalCount);
-    //     $(".progress").css({
-    //         left: $position * 100 + "%",
-    //     });
-    // });
+    function updateSlide_count(event, next) {
+        // console.log(event);
+        // slick 을 받아서 가져옴. 여기서의 이름은 event
+        // nextSlide 를 받아서 가져옴. 여기서의 이름은 next
+        $totalCount = event.slideCount;
+        $current = event.currentSlide;
+        $firstBar = $current / ($totalCount - 1);
+        $changeBar = next / ($totalCount - 1);
+    }
+    
 
     // beforeChange 일 때는, nextSlide 를 사용하고 afterChange 일 때는, currentSlide 사용
     // client 가 원하는 반응속도를 생각해서 정해주기
 
-    visualSlide.on("afterChange", function (event, slick, currentSlide, nextSlide) {
+    // visualSlide.on("afterChange", function (event, slick, currentSlide, nextSlide) {
 
-        updateSlide_count(slick);
+    //     updateSlide_count(slick);
 
-        let $position = currentSlide / $totalCount;
+    //     let $position = currentSlide / $totalCount;
 
-        $(".pagingNum").text( (currentSlide + 1) + "/" + $totalCount);
-        // console.log(currentSlide, $totalCount);
-        $(".progress").css({
-            left: $position * 100 + "%",
-        });
-
-        // console.log($current); 
-        // console.log(currentSlide);
-    });
+    //     $(".pagingNum").text( (currentSlide + 1) + "/" + $totalCount);
+    //     // console.log(currentSlide, $totalCount);
+    //     $(".progress").css({
+    //         left: $position * 100 + "%",
+    //     });
+    // });
 
     $(".slider").slick({
         dots: true,
