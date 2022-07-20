@@ -58,7 +58,7 @@ $(function () {
         // autoplay: true,
         // autoplaySpeed: 2000,
         // infinity: true,
-        initialSlide: 0, // 설정에 맞추어 slick.currentSlide 도 같이 변경된다.
+        initialSlide: 2, // 설정에 맞추어 slick.currentSlide 도 같이 변경된다.
     
         // slick-dots Image 처리 
         customPaging: function (slide, index) {

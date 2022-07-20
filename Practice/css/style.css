@@ -12,9 +12,11 @@ body {
 
     background-image: url(../img/location_bg.jpg);
     background-repeat: no-repeat;
+    background-position: left top;
 
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .container .container-inner {
     position: relative;
@@ -22,16 +24,21 @@ body {
     height: 100%;
     /* background-color: teal; */
 
-    /* display: flex;
-    align-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Contents Left */
 .text-slide {
     position: absolute;
     left: 0;
-    top: 25%;
     width: 400px;
+    height: 500px;
+
+    overflow: hidden;
+
+    border: 1px solid teal;
 }
 .text-slide .text-area {
     position: absolute;
@@ -39,30 +46,33 @@ body {
     /* border: 1px solid teal; */
 
     transition: 0.5s;
-
-    /* opacity: 0;
-    visibility: hidden; */
+    opacity: 0;
+    visibility: hidden;
 }
 .text-slide .text-area.active {
     opacity: 1;
     visibility: visible;
 }
 
-/* .text-slide .text-area.active h3,
+.text-slide .text-area h3,
+.text-slide .text-area h1,
+.text-slide .text-area ul li,
+.text-slide .text-area button {
+    transform: translateX(-100%);
+}
+.text-slide .text-area.active h3,
 .text-slide .text-area.active h1,
-.text-slide .text-area.active ul,
 .text-slide .text-area.active ul li,
 .text-slide .text-area.active button {
-    transition: 2s;
+    transform: translateX(0);
+    transition: 0.8s;
 }
-
-.text-slide .text-area.active h3 { transition-delay: 0.3s; }
-.text-slide .text-area.active h1 { transition-delay: 0.5s; }
-.text-slide .text-area.active ul { transition-delay: 0.7s; }
-.text-slide .text-area.active ul li { transition-delay: 0.9s; }
-.text-slide .text-area.active button { transition-delay: 1.1s; } */
-
-
+.text-slide .text-area.active h3 {transition-delay: 0.25s;}
+.text-slide .text-area.active h1 {transition-delay: 0.25s;}
+.text-slide .text-area.active ul li.location {transition-delay: 0.1s;}
+.text-slide .text-area.active ul li.clock {transition-delay: 0.2s;}
+.text-slide .text-area.active ul li.tel {transition-delay: 0.3s;}
+.text-slide .text-area.active button {transition-delay: 0.4s;}
 
 .text-slide .text-area h3 {
     font-size: 20px;
@@ -74,23 +84,33 @@ body {
     font-weight: 600;
     padding-top: 20px;
 }
-.text-slide .text-area .info {
+.text-slide .text-area ul {
     padding-top: 40px;
 }
-.text-slide .text-area .info li {
+.text-slide .text-area ul li {
+    display: inline-block;
+    vertical-align: middle;
     border-bottom: 1px solid #575757;
-    padding: 10px 0;
+    padding: 15px 0;
 
     font-size: 17px;
     font-weight: 300;
+    line-height: 15px;
+    color: #ccc;
+
+    display: flex;
+    /* 화면크기에 따라 자동으로 줄바꿈되게 */
+    flex-wrap: nowrap;
+    /* border: 1px solid tomato; */
 }
-.text-slide .text-area .info li img {
-    width: 15px;
-    height: 15px;
+.text-slide .text-area ul li img {
+    /* border: 1px solid tomato; */
+    width: 17px;
+    height: 17px;
     margin-right: 20px;
 }
-.text-slide .text-area .info li span {}
-.text-slide .text-area .info .line {
+.text-slide .text-area ul li span {}
+.text-slide .text-area ul .line {
     width: 100%;
     height: 5px;
     color: #EDEDED;
@@ -101,7 +121,7 @@ body {
     border-radius: 50%;
     border: none;
 
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 500;
 
     cursor: pointer;
@@ -112,7 +132,6 @@ body {
 .slide-area {
     position: absolute;
     right: 0;
-    top: 15%;
     /* border: 2px solid coral; */
 
     width: 980px;
@@ -126,27 +145,21 @@ body {
 .slick-dots {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 .slick-dots li {
-    margin-top: 10px;
+    flex: 1;
     margin-right: 15px;
+    color: #fff;
+    font-size: 16px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 12px;
+    opacity: 0.3;
+    transition: 0.5s;
+}
+.slick-dots li.slick-active {
+    opacity: 1;
 }
 .slick-dots button {
-    text-align: start;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.3);
-
-    width: 150px;
-    background-color: transparent;
-    padding: 10px 0;
-
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-
-    /* display: none; */
-}
-.slick-dots li.slick-active button {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    /* background-color: tomato; */
+    display: none;
 }
