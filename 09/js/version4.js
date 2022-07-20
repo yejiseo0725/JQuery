@@ -29,15 +29,12 @@ $(function () {
         $(".desc").removeClass("active");
         $(".desc").eq($currentSlide).addClass("active");
 
-        console.log($currentSlide, $totalSlide);
-        console.log($progressNow * 100);
+        // console.log($currentSlide, $totalSlide);
+        // console.log($progressNow * 100);
+        $(".pageNum").text(($currentSlide + 1) + " / " + $totalSlide);
         $(".progress").css({
             width: $progressNow * 100 + "%",
         });
-
-        // console.log($currentSlide + 1, $totalSlide, $progressNow);
-
-        $(".pageNum").text(($currentSlide + 1) + " / " + $totalSlide);
     });
 
 
@@ -48,14 +45,6 @@ $(function () {
         speed: 800,
         variableWidth: true,
         initialSlide: 0,
-
-        // customPaging: function (slideInfo, index) {
-        //     // console.log(slideInfo.slideCount, index);
-        //     totalSlideNum = slideInfo.slideCount;
-        //     numbering = index + 1;
-        //     console.log(totalSlideNum, numbering);
-        //     return numbering + " / " + totalSlideNum;
-        // }
     });
 
 });
