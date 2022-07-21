@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../images/location_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+}
+
+.container .inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.slider-wrap {
+    position: relative;
+}
+.textBox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+}
+.textBox .items {
+    position: absolute;
+    padding-top: 6vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.textBox .items.active {
+    opacity: 1;
+    visibility: visible;
+}
+.textBox .items span,
+.textBox .items h2,
+.textBox .items ul li,
+.textBox .items .plus {
+    transform: translateX(-100%);
+}
+.textBox .items.active span,
+.textBox .items.active h2,
+.textBox .items.active ul li,
+.textBox .items.active .plus {
+    transform: translateX(0);
+    transition: 0.8s;
+}
+.textBox .items.active span {transition-delay: 0.3s;}
+.textBox .items.active h2 {transition-delay: 0.3s;}
+.textBox .items.active ul li.location {transition-delay: 0.1s;}
+.textBox .items.active ul li.clock {transition-delay: 0.2s;}
+.textBox .items.active ul li.tel {transition-delay: 0.3s;}
+.textBox .items.active .plus {transition-delay: 0.4s;}
+
+.textBox .items span {
+    display: block;
+    font-size: 20px;
+    color: #ae874e;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.textBox .items h2 {
+    color: #fff;
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.textBox .items ul {
+    margin-bottom: 60px;
+}
+.textBox .items ul li {
+    font-size: 17px;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.textBox .items ul li img {
+    width: 18px;
+    margin-right: 17px;
+}
+.textBox .items ul li p {
+    font-size: 17px;
+    color: #ccc;
+}
+.textBox .items .plus{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    line-height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.image-slider {
+    width: calc(100vw * 980 / 1920);
+    margin-left: auto;
+}
+.image-slider .item {}
+.image-slider .item img {
+    width: 100%;
+}
+.image-slider .slick-dots {
+    display: flex;
+    margin-top: 20px;
+}
+.image-slider .slick-dots li {
+    flex: 1;
+    margin-right: 15px;
+    color: #fff;
+    font-size: 14px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 12px;
+    opacity: 0.3;
+    transition: 0.5s;
+}
+.image-slider .slick-dots li:last-child {
+    margin-right: 0;
+}
+.image-slider .slick-dots li.slick-active {
+    opacity: 1;
+}
+.image-slider .slick-dots li button {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+

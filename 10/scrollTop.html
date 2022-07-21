@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <title>ScrollTop() 함수</title>
+    <style>
+        .pos {
+            position: fixed;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%);
+            /* width: 150px; */
+            height: 50px;
+            background-color: black;
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 50px;
+            z-index: 100;
+        }
+
+        section {
+            height: 100vh;
+            position: relative;
+            background-color: mediumaquamarine;
+        }
+
+        section:nth-child(even) {
+            background-color: mediumpurple;
+        }
+
+        section h2 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pos"></div>
+
+    <div class="layout">
+        <section class="sec1">
+            <h2>SECTION #01</h2>
+        </section>
+        <section class="sec2">
+            <h2>SECTION #02</h2>
+
+            <div class="video-con">
+                <video src="full_HD.mp4" autoplay muted loop playsinline></video>
+            </div>
+        </section>
+        <section class="sec3">
+            <h2>SECTION #03</h2>
+        </section>
+        <section class="sec4">
+            <h2>SECTION #04</h2>
+        </section>
+    </div>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="scrollTop.js"></script>
+</body>
+
+</html>
