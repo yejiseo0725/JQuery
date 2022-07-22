@@ -12,72 +12,52 @@
 
 <body>
 
-    <div class="pos">1234</div>
+    <div class="pos"></div>
 
-    <div class="parent">
-        <div class="child">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ad amet commodi porro nemo fugit
-            ratione error mollitia atque, vero iusto cum ducimus? Sint quia, laboriosam natus suscipit cupiditate
-            repellat esse eius id itaque molestiae. Officia cupiditate, quidem vero necessitatibus repellat placeat quo
-            magnam aspernatur commodi id accusantium tempore esse nihil natus aperiam sed atque minima itaque expedita.
-            Praesentium magni sequi, minima possimus exercitationem placeat qui ipsum officia deserunt minus? Deserunt
-            recusandae quasi ipsa harum ullam? Aut autem consectetur ipsa dolorum culpa sequi omnis voluptatum, minus
-            repellat. Dolores possimus delectus, est quis, nihil facilis aliquid optio laborum rerum, sint
-            exercitationem.
-        </div>
-
-        <div class="box"></div>
-    </div>
-
-    <div class="sideNavi"></div>
-
-
+    <section>SECTION #01</section>
+    <section>SECTION #02</section>
+    <section>SECTION #03</section>
+    <section>SECTION #04</section>
 
     <script src="jquery-3.6.0.min.js"></script>
     <script>
 
-        // console.log($(".pos").scrollTop(1000));s
-        // scrollTop(); --- 현재 대상의 Scroll Y 좌표
-        // $(window).scroll(function () {
-        //     const pos = $(this).scrollTop();
-        //     $(".pos").text(Math.floor(pos));
+        // scrollTop() --- 스크롤의 Y축 좌표를 출력 
 
-        //     if (pos >= 200) {
-        //         $(".sideNavi").css({
-        //             position: "fixed",
-        //             top: "0",
-        //         });
-        //     } else {
-        //         $(".sideNavi").css({
-        //             position: "",
-        //             top: "",
-        //         });
-        //     }
+        // $(".pos").click(function () {
+        //     $(".parent").scrollTop(500);
+        // });
 
-        //     if (pos >= 1500) {
-        //         $(".parent .box").addClass("active");
-        //     } else {
-        //         $(".parent .box").removeClass("active");
-        //     }
+        // $(".parent").scroll(function () {
 
-            // if (pos > 1000) {
-            //     $("body").css("background", "coral");
-            // }
+        //     const scrollTop = $(this).scrollTop();
+        //     $(".pos").text(parseInt(scrollTop));
 
-            // if (pos > 1500) {
-            //     $("body").css("background", "orange");
-            // }
-
-            // if (pos > 2000) {
-            //     $("body").css("background", "#FFD858");
-            // }
-
-            // if (pos > 2500) {
-            //     $("body").css("background", "#83f28f");
-            // }
         // });
 
 
+        // HTML 로부터 얼마나 떨어져있는지 알려줌 (반응형)
+        const s1 = $("section").eq(0).offset().top;
+        const s2 = $("section").eq(1).offset().top;
+        const s3 = $("section").eq(2).offset().top;
+        const s4 = $("section").eq(3).offset().top;
+
+        console.log(parseInt(s2));
+
+        $(window).scroll(function () {
+            const pos = $(this).scrollTop();
+            const scrollTop = parseInt(pos);
+
+            $(".pos").text("스크롤 y좌표: " + scrollTop);
+
+            if (scrollTop >= s2) {
+                $("body").css("background", "coral");
+            }
+
+            if (scrollTop >= s3) {
+                $("body").css("background", "yellowgreen");
+            }
+        });
 
     </script>
 </body>

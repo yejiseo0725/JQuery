@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <title>scrollTop() 예제</title>
+    <style>
+        .layout {}
+
+        .layout h1 {
+            font-size: 5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 5px solid black;
+        }
+
+        .layout section {
+            position: relative;
+            height: 300vh;
+            background: mediumaquamarine;
+        }
+
+        .layout section:nth-child(even) {
+            background: mediumpurple;
+        }
+
+        .layout section h2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            font-size: 5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pos"></div>
+
+    <div class="layout">
+        <h1>ScrollTop() 함수 활용!</h1>
+
+        <section class="sec1">
+            <h2>SECTION #01</h2>
+        </section>
+
+        <section class="sec2">
+            <h2>SECTION #02</h2>
+        </section>
+
+        <section class="sec3">
+            <h2>SECTION #03</h2>
+        </section>
+
+        <section class="sec4">
+            <h2>SECTION #04</h2>
+        </section>
+
+    </div>
+
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        const s1 = $("section").eq(0).offset().top;
+        const s2 = $("section").eq(1).offset().top;
+        const s3 = $("section").eq(2).offset().top;
+        const s4 = $("section").eq(3).offset().top;
+
+        // console.log(s2, s3);
+
+        $(window).scroll(function () {
+            const pos = $(this).scrollTop();
+            const scrollTop = parseInt(pos);
+            console.log(scrollTop, s2);
+
+            if (scrollTop >= s1 && scrollTop < s2) {
+                $(".sec1 h2").css({
+                    position: "fixed",
+                });
+            } else {
+                $(".sec1 h2").css({
+                    position: "",
+                });
+            }
+
+            if (scrollTop >= s2 && scrollTop < s3) {
+                $(".sec2 h2").css({
+                    position: "fixed",
+                });
+            } else {
+                $(".sec2 h2").css({
+                    position: "",
+                });
+            }
+
+            if (scrollTop >= s3 && scrollTop < s4) {
+                $(".sec3 h2").css({
+                    position: "fixed",
+                });
+            } else {
+                $(".sec3 h2").css({
+                    position: "",
+                });
+            }
+
+            if (scrollTop >= s4) {
+                $(".sec4 h2").css({
+                    position: "fixed",
+                });
+                // $("body").css("background", "coral");
+            } else {
+                $(".sec4 h2").css({
+                    position: "",
+                });
+            }
+
+
+        });
+
+    </script>
+</body>
+
+</html>
