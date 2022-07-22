@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <title>Scroll Practice!</title>
+    <style>
+        .layout {
+            width: 100%;
+            height: 100%;
+        }
+
+        .layout section {
+            position: relative;
+            height: 100vh;
+        }
+
+        .layout section .inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* transform: translateX(-50%); */
+            width: 100%;
+            width: 100%;
+        }
+
+        .layout section.sec1 {
+            background-color: greenyellow;
+        }
+
+        .layout section.sec2 {
+            background-color: dodgerblue;
+        }
+
+        .layout section.sec3 {
+            background-color: gray;
+        }
+
+        .layout section.sec4 {
+            background-color: coral;
+        }
+
+        .layout section.sec5 {
+            background-color: orange;
+        }
+
+        .layout section h2 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <section class="sec1">
+            <div class="inner">
+                <h2>SECTION #01</h2>
+            </div>
+        </section>
+
+        <section class="sec2">
+            <div class="inner">
+                <h2>SECTION #02</h2>
+            </div>
+        </section>
+
+        <section class="sec3">
+            <div class="inner">
+                <h2>SECTION #03</h2>
+            </div>
+        </section>
+
+        <section class="sec4">
+            <div class="inner">
+                <h2>SECTION #04</h2>
+            </div>
+        </section>
+
+        <section class="sec5">
+            <div class="inner">
+                <h2>SECTION #05</h2>
+            </div>
+        </section>
+
+    </div>
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+
+
+        $(window).scroll(function () {
+
+            const scrollTop = $(this).scrollTop();
+            const $sec = $(".layout section");
+
+            for (let i = 0; i < $sec.length; i += 1) {
+
+                if (scrollTop > $sec.eq(i).offset().top) {
+                    $sec.eq(i).children().css({ position: "fixed" })
+                } else {
+                    $sec.eq(i).children().css({ position: "" })
+                }
+            }
+
+        });
+
+
+        // const s1 = $("section").eq(0).offset().top;
+        // const s2 = $("section").eq(1).offset().top;
+        // const s3 = $("section").eq(2).offset().top;
+        // const s4 = $("section").eq(3).offset().top;
+        // const s5 = $("section").eq(4).offset().top;
+
+        // console.log(s1, s2, s3, s4, s5);
+
+        // $(window).scroll(function () {
+
+        //     const pos = $(this).scrollTop();
+        //     const scrollTop = parseInt(pos);
+
+        //     if (scrollTop >= s1 && scrollTop < s2) {
+        //         $(".sec1 .inner").css({
+        //             position: "fixed",
+        //             // top: "0",
+        //         });
+        //     } else {
+        //         $(".sec1 .inner").css({
+        //             position: "",
+        //         });
+        //     }
+
+        //     if (scrollTop >= s2 && scrollTop < s3) {
+        //         $(".sec2 .inner").css({
+        //             position: "fixed",
+        //             // top: "0",
+        //         });
+        //     } else {
+        //         $(".sec2 .inner").css({
+        //             position: "",
+        //         });
+        //     }
+
+        //     if (scrollTop >= s3 && scrollTop < s4) {
+        //         $(".sec3 .inner").css({
+        //             position: "fixed",
+        //             // top: "0",
+        //         });
+        //     } else {
+        //         $(".sec3 .inner").css({
+        //             position: "",
+        //         });
+        //     }
+
+        //     if (scrollTop >= s4 && scrollTop < s5) {
+        //         $(".sec4 .inner").css({
+        //             position: "fixed",
+        //             // top: "0",
+        //         });
+        //     } else {
+        //         $(".sec4 .inner").css({
+        //             position: "",
+        //         });
+        //     }
+
+        //     if (scrollTop >= s5) {
+        //         $(".sec5 .inner").css({
+        //             position: "fixed",
+        //             // top: "0",
+        //         });
+        //     } else {
+        //         $(".sec5 .inner").css({
+        //             position: "",
+        //         });
+        //     }
+
+        // });
+
+    </script>
+</body>
+
+</html>
