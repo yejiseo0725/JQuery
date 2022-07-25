@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/scrollTop04.css">
+    <title>ScrollTop #04</title>
+</head>
+
+<body>
+
+    <div class=layout>
+
+        <section class="sec1">
+            <h2>section #01</h2>
+        </section>
+
+        <section class="sec2">
+            <h2>section #02</h2>
+
+            <div class="video-section">
+                <div class="video">
+                    <video src="../full_HD.mp4" autoplay muted></video>
+                </div>
+            </div>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Id autem temporibus expedita, reprehenderit
+                dicta
+                eaque
+                similique? Cupiditate corporis repudiandae tenetur sunt officia asperiores deleniti, non, dolorum ab
+                dignissimos
+                earum magni fugit at mollitia odio? Necessitatibus possimus vitae esse ab exercitationem facere
+                quaerat
+                nesciunt, fuga laudantium dolorem totam officia repellendus quidem? Placeat odio corporis sit! Enim,
+                consectetur
+                quae aliquid ducimus aliquam alias nemo voluptate, sed error veritatis iure officia saepe maxime ex
+                qui
+                ea
+                tenetur illum et atque aut quam. Ipsam harum eos enim, impedit sit voluptate. A suscipit optio
+                necessitatibus
+                doloribus similique itaque facere tenetur perferendis quod consequatur porro iste hic excepturi
+                atque
+                laudantium
+                autem eius, sint vel fuga, velit illum nulla? Debitis magnam delectus quibusdam expedita. Est
+                repudiandae
+                impedit itaque atque debitis! Qui illum sapiente vitae natus voluptatum pariatur itaque possimus
+                nostrum
+                animi
+                molestiae distinctio error incidunt quod, cum laudantium rem quasi delectus nam obcaecati non
+                placeat,
+                fugiat
+                provident? Pariatur laboriosam odio sunt explicabo quod, repellat cum excepturi, modi harum ad in
+                maiores
+                dolor,
+                a enim accusantium voluptatum deserunt totam? Corporis nostrum et at, excepturi temporibus
+                doloremque
+                aperiam.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos rerum sint perferendis harum quibusdam
+                quos
+                culpa
+                tempora, quaerat voluptas! Delectus iure possimus libero sed veritatis, rerum repellendus laborum,
+                perferendis
+                est quidem velit earum necessitatibus dignissimos accusamus odio, excepturi commodi nostrum adipisci
+                dolorem
+                veniam? Itaque consequatur asperiores debitis dolores veritatis aspernatur veniam soluta officia
+                beatae.
+                Id
+                veniam quae fugiat, corporis alias, recusandae molestias porro unde fuga et dicta, libero quam
+                similique
+                inventore qui maxime. Libero aperiam voluptatem aliquam labore ipsam. Id.
+                <br>
+                Ex molestiae libero officia veritatis, at recusandae suscipit dolore distinctio laudantium a debitis
+                odit
+                nihil
+                incidunt illo fuga, excepturi asperiores consectetur accusamus aliquam amet impedit? Provident
+                perferendis
+                corrupti quo rem, nulla voluptates excepturi dolores suscipit voluptate, error inventore nihil
+                reprehenderit
+                quas perspiciatis molestiae aspernatur, id repellendus obcaecati. Ipsum enim ipsa id dolores quaerat
+                doloribus
+                deserunt vitae dicta, fugiat odit saepe quibusdam cupiditate nulla dolorum reiciendis amet quos
+                omnis
+                iusto
+                sit
+                quo ducimus? Aut nisi debitis doloremque molestiae voluptatem nobis ipsum. Quam error officia quae,
+                eligendi
+                esse aspernatur deserunt, atque, sequi nisi eveniet commodi harum incidunt deleniti odit praesentium
+                accusantium
+                assumenda reiciendis pariatur quo est hic cum rerum! Similique porro iste possimus amet reiciendis
+                tenetur
+                maxime! Maiores placeat sunt ullam id nulla.
+            </p>
+        </section>
+
+        <section class="sec3">
+            <div class="inner">
+                <h2>section #03</h2>
+            </div>
+        </section>
+
+        <section class="sec4">
+            <div class="inner">
+                <h2>section #04</h2>
+            </div>
+        </section>
+
+        <section class="sec5">
+            <h2>section #05</h2>
+        </section>
+
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script>
+
+            const s1 = parseInt($("section").eq(0).offset().top);
+            const s2 = parseInt($("section").eq(1).offset().top);
+            const s3 = parseInt($("section").eq(2).offset().top);
+            const s4 = parseInt($("section").eq(3).offset().top);
+            const s5 = parseInt($("section").eq(4).offset().top);
+
+            const s1_title_offset = parseInt($(".sec1 h2").offset().top);
+            const video_offset = parseInt($(".video-section").offset().top);
+
+            // console.log(s1, s2, s3, s4);
+
+            $(window).scroll(function () {
+                const now = $(this).scrollTop();
+                const scrollTop = parseInt(now);
+                // console.log(parseNow, s1, s2);
+
+                if (scrollTop >= s1_title_offset) {
+                    $(".sec1 h2").css({
+                        position: "fixed",
+                        top: "0",
+                        transform: "translate(-50%, 0)",
+                    });
+                } else {
+                    $(".sec1 h2").css({
+                        position: "",
+                        top: "",
+                        transform: "",
+                    });
+                };
+
+                if (scrollTop >= s2) {
+                    $(".sec2 h2").css({
+                        position: "fixed",
+                    });
+                } else {
+                    $(".sec2 h2").css({
+                        position: "",
+                    });
+                };
+
+                if (scrollTop > video_offset) {
+                    $(".video-section .video").css({
+                        position: "fixed",
+                    });
+                } else {
+                    $(".video-section .video").css({
+                        position: "",
+                    });
+                };
+
+                if (scrollTop > s3) {
+                    $(".sec3 .inner").css({
+                        position: "fixed",
+                    });
+                } else {
+                    $(".sec3 .inner").css({
+                        position: "",
+                    });
+                };
+
+                if (scrollTop > s4) {
+                    $(".sec4 .inner").css({
+                        position: "fixed",
+                    });
+                } else {
+                    $(".sec4 .inner").css({
+                        position: "",
+                    });
+                }
+
+
+            });
+
+        </script>
+</body>
+
+</html>
