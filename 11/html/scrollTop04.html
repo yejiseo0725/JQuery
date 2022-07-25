@@ -22,6 +22,7 @@
             <h2>section #02</h2>
 
             <div class="video-section">
+                <!-- position이 걸릴 박스요소가 필요함 -->
                 <div class="video">
                     <video src="../full_HD.mp4" autoplay muted></video>
                 </div>
@@ -121,8 +122,10 @@
             const s4 = parseInt($("section").eq(3).offset().top);
             const s5 = parseInt($("section").eq(4).offset().top);
 
+            // 필요한 부분에 대한 scrollTop 좌표값. 
             const s1_title_offset = parseInt($(".sec1 h2").offset().top);
             const video_offset = parseInt($(".video-section").offset().top);
+            console.log(video_offset);
 
             // console.log(s1, s2, s3, s4);
 
