@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/blackFriday.css">
+    <title>Black Friday</title>
+</head>
+
+<body>
+    <section>
+        <div class="num"></div>
+
+        <h2>black<span>friday</span></h2>
+        <div class="coverBlack"></div>
+        <img src="../image/text.png" alt="">
+    </section>
+
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(window).on("mousemove", function (event) {
+            // console.log(event.clientX);
+            const mouseX = event.clientX;
+            $(".num").text(mouseX);
+
+            $(".coverBlack").css({
+                // width: mouseX + "px",
+                transform: "translateX(" + mouseX + "px)",
+            });
+        });
+
+    </script>
+</body>
+
+</html>
