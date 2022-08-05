@@ -1,0 +1,68 @@
+/* Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  /* width: 50%; */
+  margin: 0 auto;
+  position: relative;
+  height: 100vh;
+  background: url(../image/photo1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  border: 2px solid red;
+}
+
+.rolling {
+  display: flex;
+}
+.rolling.text1 {
+  transform: rotate(30deg) translateY(200px) translateX(-200px);
+}
+.rolling.text2 {
+  transform: rotate(-25deg) translateY(120px) translateX(-200px);
+}
+.rolling.text3 {
+  transform: rotate(25deg) translateY(300px) translateX(-200px);
+}
+.rolling.text4 {
+  transform: rotate(-5deg) translateY(120px) translateX(-200px);
+}
+.rolling.text5 {
+  transform: rotate(10deg) translateY(350px) translateX(-200px);
+}
+
+.rolling div {
+  font-size: 3rem;
+  line-height: 1.4;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: mediumaquamarine;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  letter-spacing: 3px;
+  animation: rollingText 5s linear infinite;
+}
+@keyframes rollingText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.rolling div:first-child {
+  transform: translateX(-100%);
+}
+.rolling div:last-child {
+  transform: translateX(-100%);
+}
+.rolling div span {
+  -webkit-text-stroke: 2px mediumaquamarine;
+  color: transparent;
+}
