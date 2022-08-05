@@ -1,0 +1,79 @@
+section {
+  position: relative;
+  width: 1000px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: dodgerblue;
+  overflow: hidden;
+}
+.rolling {
+  display: flex;
+  white-space: nowrap;
+
+  font-size: 5.5rem;
+  line-height: 1.4;
+  font-weight: bold;
+}
+.rolling div:first-child {
+  transform: translateX(-100%);
+}
+.rolling div:last-child {
+  transform: translateX(-100%);
+}
+.rolling div {
+  /* animation: rolling 5s linear infinite; */
+}
+@keyframes rolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.rolling2 {
+  white-space: nowrap;
+  position: absolute;
+  top: 200px;
+  right: 0;
+  font-size: 5.5rem;
+  line-height: 1.4;
+  font-weight: bold;
+  background-color: mediumaquamarine;
+  /* transform: translateX(100%); */
+  animation: rolling2 3s linear infinite;
+}
+
+@keyframes rolling2 {
+  0% {
+    right: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+.rolling3 {
+  white-space: nowrap;
+  position: absolute;
+  top: 400px;
+  left: 0;
+  font-size: 5.5rem;
+  line-height: 1.4;
+  font-weight: bold;
+  background-color: mediumpurple;
+  /* transform: translateX(-100%); */
+  animation: examRolling3 3s linear infinite;
+}
+
+@keyframes examRolling3 {
+  0% {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 100%;
+  }
+}

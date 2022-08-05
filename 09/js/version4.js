@@ -37,8 +37,6 @@ $(function () {
         });
     });
 
-
-
     $('.visual-slider').slick({
         dots: true,
         arrows: false,
@@ -46,5 +44,4 @@ $(function () {
         variableWidth: true,
         initialSlide: 0,
     });
-
 });
