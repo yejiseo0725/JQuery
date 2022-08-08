@@ -69,12 +69,11 @@ body {
 }
 .cartTotal-box .totalPrice-items {
   display: flex;
-  border: 3px solid black;
+  border: 3px solid blue;
   padding: 30px;
 }
 .cartTotal-box .totalPrice-items p {
   flex: 1;
-  border: 1px solid coral;
   font-size: 20px;
   font-family: bold;
 }

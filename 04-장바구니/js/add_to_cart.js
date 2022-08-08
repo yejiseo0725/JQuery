@@ -39,6 +39,7 @@ $(function () {
     const $obj = $(this).siblings("input[type=text]");
     let $value = $obj.val();
 
+    // 버튼에 따라 수량 변경, 수량 텍스트 변경
     if ($this.val() === "-") {
       if ($value > 1) $obj.val(--$value);
     } else {
@@ -52,24 +53,33 @@ $(function () {
 
   function amountPrice_func() {
     const $list1 = $(".list1");
-    const $price1 = $list1.find(".price").text().replace(/[^0-9]/g, "");
+    const $price1 = $list1
+      .find(".price")
+      .text()
+      .replace(/[^0-9]/g, "");
+    // replace(/[^0-9]/g, "") -> 숫자만 추출
     const $value1 = $list1.find("input[type=text]").val();
     const $am1 = parseInt($price1) * parseInt($value1);
-    $list1.find(".am-price").text( $am1.toLocaleString() ); // 1번 장바구니의 합계
-
+    $list1.find(".am-price").text($am1.toLocaleString()); // 1번 장바구니의 합계
+    // toLocaleString() -> 숫자를 쉼표로 분리해줌
 
     const $list2 = $(".list2");
-    const $price2 = $list2.find(".price").text().replace(/[^0-9]/g, ""); 
-    const $value2 = $list2.find("input[type=text]").val(); 
+    const $price2 = $list2
+      .find(".price")
+      .text()
+      .replace(/[^0-9]/g, "");
+    const $value2 = $list2.find("input[type=text]").val();
     const $am2 = parseInt($price2) * parseInt($value2);
-    $list2.find(".am-price").text( $am2.toLocaleString() ); // 2번 장바구니의 합계 
-
+    $list2.find(".am-price").text($am2.toLocaleString()); // 2번 장바구니의 합계
 
     const $list3 = $(".list3");
-    const $price3 = $list3.find(".price").text().replace(/[^0-9]/g, "");
-    const $value3 = $list3.find("input[type=text]").val(); 
+    const $price3 = $list3
+      .find(".price")
+      .text()
+      .replace(/[^0-9]/g, "");
+    const $value3 = $list3.find("input[type=text]").val();
     const $am3 = parseInt($price3) * parseInt($value3);
-    $list3.find(".am-price").text( $am3.toLocaleString() );
+    $list3.find(".am-price").text($am3.toLocaleString());
 
     console.log($am1 + $am2 + $am3);
 
@@ -80,12 +90,20 @@ $(function () {
     const $am_sum = a + b + c;
 
     const $total = $(".totalPrice-items");
-    const $sale = $total.find(".salePrice").text().replace(/[^0-9]/g, "");
-    const $delivery = $total.find(".deliveryPrice").text().replace(/[^0-9]/g, "");
+    const $sale = $total
+      .find(".salePrice")
+      .text()
+      .replace(/[^0-9]/g, "");
+    const $delivery = $total
+      .find(".deliveryPrice")
+      .text()
+      .replace(/[^0-9]/g, "");
+
+    // 총 상품금액 - 할인 금액 + 배송비 ==> 총 결제금액(.totalprice)
     const $calc = $am_sum - parseInt($sale) + parseInt($delivery);
 
-    $total.find(".amPrice-sum").text( $am_sum.toLocaleString() );
-    $total.find(".totalPrice").text( $calc.toLocaleString() );
+    $total.find(".amPrice-sum").text($am_sum.toLocaleString());
+    $total.find(".totalPrice").text($calc.toLocaleString());
   }
   // -----------
 

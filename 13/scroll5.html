@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <title>ScrollTop 함수 활용 #05</title>
+    <style>
+        section {
+            position: relative;
+            height: 100vh;
+            background: mediumblue;
+        }
+
+        section:nth-child(even) {
+            background: mediumorchid;
+        }
+
+        section h2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4.5rem;
+            color: #fff;
+            font-weight: bold;
+            transition: 1s;
+        }
+
+        section.sec1 {
+            padding-top: 50vh
+        }
+
+        section .items {
+            display: flex;
+            justify-content: center;
+            border: 2px solid crimson;
+        }
+
+        section .items div {
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            transition: 0.5s;
+
+        }
+
+        section .items .box1 {
+            /* margin-top: 200px; */
+            background-color: orange;
+        }
+
+        section .items .box2 {
+            background-color: yellowgreen;
+        }
+
+        section .items .box3 {
+            background-color: crimson;
+        }
+
+        section .items .box4 {
+            background-color: palevioletred;
+        }
+
+        section .items .box5 {
+            background-color: dodgerblue;
+        }
+
+        .pos {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: black;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 500;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pos"></div>
+
+    <div class="layout">
+        <section class="sec1">
+            <h2>SECTION $01</h2>
+
+            <div class="items">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+                <div class="box4"></div>
+                <div class="box5"></div>
+            </div>
+        </section>
+
+        <section class="sec2">
+            <h2>SECTION $02</h2>
+        </section>
+
+        <section>
+            <h2>SECTION $03</h2>
+        </section>
+
+        <section>
+            <h2>SECTION $04</h2>
+        </section>
+    </div>
+
+
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        let scrollTop;
+
+        let sec2_h2 = $(".sec2 h2");
+        let sec2_h2_Top = $(".sec2 h2").offset().top;
+        console.log(sec2_h2_Top);
+        let $winH = $(window).height();
+
+        // .height();
+        // .innerHeight(); // 패딩값 까지 포함
+        // .outerHeight(); // 보더값 까지 포함
+        // .outerHeight(true); // 마진까지 포함
+
+        let box1H = $(".box1").height();
+        let box1_innerH = $(".box1").innerHeight();
+        let box1_outerH = $(".box1").outerHeight();
+        let box1_outerH2 = $(".box1").outerHeight(true);
+
+        $(window).scroll(function () {
+            scrollTop = $(this).scrollTop();
+            $(".pos").text(parseInt(scrollTop));
+            console.log(scrollTop);
+            if (scrollTop + $winH * 0.7 > sec2_h2_Top) {
+                sec2_h2.css({
+                    color: "coral",
+                })
+            }
+
+            //animate (사용할 속성, 재생시간, 가속도)
+            // $(".box1").animate({ marginTop: scrollTop * 0.5 }, 100);
+            // $(".box2").animate({ marginTop: scrollTop * 0.8 }, 100);
+            // $(".box3").animate({ marginTop: scrollTop * 1.2 }, 100);
+
+            $(".box1").css({
+                transform: "translateY(" + (-scrollTop * 0.5) + "px)",
+            });
+            $(".box2").css({
+                transform: "translateY(" + (-scrollTop * 0.3) + "px)",
+            });
+            $(".box3").css({
+                transform: "translateY(" + (-scrollTop * 0.8) + "px)",
+            });
+            $(".box4").css({
+                transform: "translateY(" + (-scrollTop * 1.2) + "px)",
+            });
+            $(".box5").css({
+                transform: "translateY(" + (-scrollTop * 0.1) + "px)",
+            });
+        });
+
+    </script>
+</body>
+
+</html>
