@@ -75,15 +75,40 @@ a {
   mix-blend-mode: screen;
 }
 .ani-section h2.ani-text {
+  border: 3px solid crimson;
+
   position: absolute;
   left: 100%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   color: #fff;
   font-size: 10vw;
   font-family: "Rancho", sans-serif;
   text-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
+}
+.ani-section .box {
+  display: flex;
+}
+.ani-section .box .color-box {
+  position: absolute;
+
+  width: 0;
+
+  height: 200px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.8s;
+  background-color: dodgerblue;
+}
+.ani-section .box .color-box:nth-child(2) {
+  background-color: orange;
+  width: 0;
+}
+.ani-section .box .color-box:nth-child(3) {
+  background-color: crimson;
+  width: 0;
 }
 
 .desc-section {

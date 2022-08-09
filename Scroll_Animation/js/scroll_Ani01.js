@@ -28,5 +28,10 @@ $(function () {
       left: 100 + -scrollTop * 0.2 + "%",
       top: 50 + scrollTop * 0.08 + "%",
     });
+
+    $(".color-box:nth-child(2)").css({
+      left: scrollTop * 0.2 + "%",
+      width: "100%",
+    });
   });
 });
