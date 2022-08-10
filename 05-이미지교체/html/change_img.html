@@ -65,6 +65,8 @@
                 // imgList.eq(i).children().attr("src", "../img/boot_cut" + (i + 1) + ".jpg");
             }
 
+
+            // 혹은 for 문이 위의 if 문을 감싸는 형태로 작성 하는 방법도 있음
             for (let i = 0; i < $(".type-item").length; i++) {
                 imgList.eq(i).children().attr("src", imgSrc + (i + 1) + ".jpg");
             }
