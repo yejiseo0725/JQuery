@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 문</title>
+</head>
+
+<body>
+
+    <h2>for문</h2>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        // for (초기식; 조건식; 증감식) {
+        //     // 명령문
+        // }
+
+        // let sum = 0;
+        // for (let i = 0; i < 11; i++) {
+        //     // 실행문
+        //     sum += i;
+        //     console.log(sum);
+        // }
+
+        // for (let j = 0; j <= 10; j++) {
+        //     // console.log(j);
+        //     if (j % 2 === 0) {
+        //         console.log(j + "짝수");
+        //     } else {
+        //         console.log(j + "홀수");
+        //     }
+        // }
+
+
+        // console.log(2 + "*" + 1 + "=" + 2);
+        // console.log(2 + "*" + 2 + "=" + 4);
+        // console.log(2 + "*" + 3 + "=" + 6);
+        // console.log(2 + "*" + 4 + "=" + 8);
+        // console.log(2 + "*" + 5 + "=" + 10);
+
+
+        // 구조 분해하고 패턴을 먼저 만들어보기
+        for (let v = 2; v <= 9; v++) {
+
+            console.log(v + "단");
+
+            for (let i = 1; i <= 9; i++) {
+                console.log(v + " * " + i + " = " + v * i);
+                // console.log(2 + " * " + i + " = " + 2 * i);
+                // console.log(3 + " * " + i + " = " + 3 * i);
+                // console.log(4 + " * " + i + " = " + 4 * i);
+            }
+
+        }
+
+        // 구구단 역순
+        for (let v = 9; v >= 2; v--) {
+
+            console.log(v + "단");
+
+            for (let i = 1; i <= 9; i++) {
+                console.log(v + " * " + i + " = " + v * i);
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -29,16 +29,17 @@
             <li class="item"><img src="../img/product_cut3.jpg" alt=""></li>
         </ul>
 
-        <!-- <nav class="side-img">
+        <nav class="side-img">
             <div class="type-item"><img src="../img/product_cut1.jpg" alt=""></div>
             <div class="type-item"><img src="../img/proBeige_cut1.jpg" alt=""></div>
             <div class="type-item"><img src="../img/boot_cut1.jpg" alt=""></div>
-        </nav> -->
+        </nav>
 
     </div>
 
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script>
+
         let lastImgIndex = 0;
         $(".item").click(function () {
             $(this).addClass("active").siblings().removeClass("active");
@@ -47,25 +48,31 @@
             lastImgIndex = $(this).index(); // 클릭한 아이템의 배열번호 0 1 2
         });
 
-        // $(".type-item").click(function () {
-        //     const typeIndex = $(this).index();
-        //     const imgList = $(".item");
-        //     if (typeIndex === 0) { // 사이드이미지 첫번째
-        //         imgList.eq(0).children().attr("src", "../img/product_cut1.jpg");
-        //         imgList.eq(1).children().attr("src", "../img/product_cut2.jpg");
-        //         imgList.eq(2).children().attr("src", "../img/product_cut3.jpg");
-        //     } else if (typeIndex === 1) { // 사이드이미지 두번째
-        //         imgList.eq(0).children().attr("src", "../img/proBeige_cut1.jpg");
-        //         imgList.eq(1).children().attr("src", "../img/proBeige_cut2.jpg");
-        //         imgList.eq(2).children().attr("src", "../img/proBeige_cut3.jpg");
-        //     } else { // 사이드 이미지 세번째
-        //         imgList.eq(0).children().attr("src", "../img/boot_cut1.jpg");
-        //         imgList.eq(1).children().attr("src", "../img/boot_cut2.jpg");
-        //         imgList.eq(2).children().attr("src", "../img/boot_cut3.jpg");
-        //     }
-        //     const bigImg_Src = imgList.eq(lastImgIndex).children().attr("src"); // 마지막으로 클릭된 item 배열을 담은 변수
-        //     $(".big-img").children().attr("src", bigImg_Src);
-        // });
+
+        let imgSrc = "";
+        $(".type-item").click(function () {
+            const typeIndex = $(this).index();
+            const imgList = $(".item");
+
+            if (typeIndex === 0) { // 사이드이미지 첫번째
+                imgSrc = "../img/product_cut";
+                // imgList.eq(i).children().attr("src", "../img/product_cut" + (i + 1) + ".jpg");
+            } else if (typeIndex === 1) { // 사이드이미지 두번째
+                imgSrc = "../img/proBeige_cut";
+                // imgList.eq(i).children().attr("src", "../img/proBeige_cut" + (i + 1) + ".jpg");
+            } else { // 사이드 이미지 세번째
+                imgSrc = "../img/boot_cut";
+                // imgList.eq(i).children().attr("src", "../img/boot_cut" + (i + 1) + ".jpg");
+            }
+
+            for (let i = 0; i < $(".type-item").length; i++) {
+                imgList.eq(i).children().attr("src", imgSrc + (i + 1) + ".jpg");
+            }
+
+
+            const bigImg_Src = imgList.eq(lastImgIndex).children().attr("src"); // 마지막으로 클릭된 item 배열을 담은 변수
+            $(".big-img").children().attr("src", bigImg_Src);
+        });
     </script>
 </body>
 
