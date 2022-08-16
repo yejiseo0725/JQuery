@@ -1,0 +1,83 @@
+h2 {
+  font-size: 5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+
+.section:nth-child(1) {
+  background-color: crimson;
+}
+.section:nth-child(2) {
+  background-color: orange;
+}
+.section:nth-child(3) {
+  background-color: dodgerblue;
+}
+.section:nth-child(4) {
+  background-color: yellowgreen;
+}
+
+.s2 {
+  background-color: orange;
+}
+
+.s2.color {
+  background-color: teal;
+  transition: 0.5s;
+}
+
+/* .slide1 {
+  background-color: greenyellow;
+}
+.slide2 {
+  background-color: gold;
+}
+.slide3 {
+  background-color: pink;
+} */
+
+#fp-nav {
+  background-color: transparent;
+  border: 5px solid dodgerblue;
+}
+#fp-nav ul li {
+  margin: 30px 0;
+  /* pointer-events: none; */
+}
+#fp-nav ul li a {
+}
+#fp-nav ul li a span {
+  width: 8px;
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+#fp-nav ul li a.active span {
+  width: 8px;
+  height: 40px;
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+#fp-nav ul li a span {
+  pointer-events: none;
+}
+
+#menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+#menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 30px;
+  font-weight: 500;
+}
