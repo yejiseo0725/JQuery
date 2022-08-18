@@ -1,4 +1,76 @@
 $(function () {
+  // checkbox
+
+  $("#all-chk").change(function () {
+    if ($("#all-chk").is(":checked")) {
+      $("input[name=item-chk]").prop("checked", true);
+    } else {
+      $("input[name=item-chk]").prop("checked", false);
+    }
+
+    const itemChk = $("input[name=item-chk]");
+    let check_count = 0;
+
+    for (let i = 0; i <= itemChk.length; i++) {
+      if (itemChk.eq(i).is(":checked") === true) {
+        check_count++;
+      }
+    }
+    $(".remove-btn span").text(check_count);
+  });
+
+  $("input[name=item-chk]").change(function () {
+    // 전체 item 개수(Length) === 3
+    let item_length = $("input[name=item-chk]").length;
+    // checked item 개수(length) === 1~3
+    let chkItem_length = $("input[name=item-chk]:checked").length;
+    // boolean type 검사를 위해 만든 변수
+    let selectAll = item_length === chkItem_length;
+
+    // console.log(selectAll);
+
+    // 현재 checked item 의 개수(length) 보여주기
+    $(".remove-btn span").text(chkItem_length);
+    // prop 으로 boolean 검사
+    $("#all-chk").prop("checked", selectAll);
+  });
+
+  $(".item-remove").click(function () {
+    let removeNum = $(".remove-btn .num").text();
+    let checkRemove_chk = $(this)
+      .closest(".list")
+      .find("input[type=checkbox]")
+      .is(":checked");
+
+    if (checkRemove_chk === true) {
+      removeNum = removeNum - 1;
+      $(".remove-btn .num").text(removeNum);
+    }
+
+    $(this).closest(".list").remove();
+    totalPay();
+  });
+
+  $(".remove-btn").click(function () {
+    let removeNum = $(".remove-btn .num").text();
+    let itemChk = $("input[name=item-chk]");
+
+    for (let i = 0; i < itemChk.length; i++) {
+      let check_count = itemChk
+        .eq(i)
+        .closest(".list")
+        .find("input[type=checkbox]")
+        .is(":checked");
+
+      if (check_count === true) {
+        removeNum = removeNum - 1;
+        $(".remove-btn .num").text(removeNum);
+        itemChk.eq(i).closest(".list").remove();
+      }
+    }
+    totalPay();
+  });
+
   $(".list input[type=button]").click(function () {
     // 버튼
     const $this = $(this);
@@ -42,12 +114,13 @@ $(function () {
     totalPay();
   }
 
+  // 총 상품금액
   function totalPay() {
     let $list = $(".list");
     let converseUnit = 0;
     let amountTotal = 0;
 
-    for (let i = 0; i < $list.length; i++) {
+    for (let i = 1; i < $list.length; i++) {
       // am-price : 합계
       converseUnit = $list
         .eq(i)

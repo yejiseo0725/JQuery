@@ -21,7 +21,7 @@ section {
   transform: translateX(-100%);
 }
 .rolling div {
-  /* animation: rolling 5s linear infinite; */
+  animation: rolling 5s linear infinite;
 }
 @keyframes rolling {
   0% {

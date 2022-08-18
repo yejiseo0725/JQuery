@@ -13,12 +13,10 @@
   position: absolute;
   left: 0;
   top: 0;
-
   width: 0;
   overflow: hidden;
 
   color: #ff6741;
-
   transition: 0.5s;
 }
 

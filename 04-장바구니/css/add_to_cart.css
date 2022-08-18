@@ -9,6 +9,12 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   padding: 0 100px;
 }
+
+/* checkbox */
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
 .cartList {
   width: 100%;
 }
@@ -19,6 +25,12 @@ body {
   border: 2px solid black;
   margin: 40px 0;
 }
+
+/* all checkbox */
+.cartList .list:first-child {
+  padding: 30px 0;
+}
+
 .cartList .list .img {
   width: 200px;
   font-size: 0;
@@ -61,6 +73,14 @@ body {
 }
 .cartList .list .itemAmount-price .am-price {
 }
+.cartList .list .itemAmount-price .item-remove {
+  border-radius: 50%;
+  background-color: dodgerblue;
+  color: #fff;
+  padding: 0 8px;
+  margin-left: 10px;
+  cursor: pointer;
+}
 
 .cartTotal-box {
   width: 100%;
@@ -69,8 +89,9 @@ body {
 }
 .cartTotal-box .totalPrice-items {
   display: flex;
-  border: 3px solid blue;
   padding: 30px;
+  background-color: dodgerblue;
+  color: #fff;
 }
 .cartTotal-box .totalPrice-items p {
   flex: 1;
@@ -78,4 +99,10 @@ body {
   font-family: bold;
 }
 .cartTotal-box .totalPrice-items p strong {
+}
+
+.cartList .list .remove-btn {
+  padding: 10px;
+  background-color: dodgerblue;
+  color: #fff;
 }
